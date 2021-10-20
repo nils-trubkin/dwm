@@ -117,7 +117,7 @@ index 4465af1..c3b2d82 100644
  	m->lt[0] = &layouts[0];
  	m->lt[1] = &layouts[1 % LENGTH(layouts)];
  	strncpy(m->ltsymbol, layouts[0].symbol, sizeof m->ltsymbol);
-@@ -1670,32 +1677,6 @@ tagmon(const Arg *arg)
+@@ -1670,34 +1677,6 @@ tagmon(const Arg *arg)
  	sendmon(selmon->sel, dirtomon(arg->i));
  }
  
