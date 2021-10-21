@@ -1,0 +1,50 @@
+--- config.def.h	2021-10-21 01:26:25.394597340 +0200
++++ /home/z/dwm.old/config.h	2021-10-21 03:41:50.691055742 +0200
+@@ -10,19 +10,20 @@
+ static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
+ static const int showbar            = 1;        /* 0 means no bar */
+ static const int topbar             = 1;        /* 0 means bottom bar */
+-static const char *fonts[]          = { "monospace:size=10" };
+-static const char dmenufont[]       = "monospace:size=10";
++static const char *fonts[]          = { "Fira Code:size=20" };
++static const char dmenufont[]       = "Fira Code:size=20";
+ static const char col_gray1[]       = "#222222";
+ static const char col_gray2[]       = "#444444";
+ static const char col_gray3[]       = "#bbbbbb";
+ static const char col_gray4[]       = "#eeeeee";
+ static const char col_cyan[]        = "#005577";
++static const char col_dark_yellow[] = "#F78C6C";
+ static const unsigned int baralpha = 0xd0;
+ static const unsigned int borderalpha = OPAQUE;
+ static const char *colors[][3]      = {
+ 	/*               fg         bg         border   */
+ 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
++	[SchemeSel]  = { col_gray4, col_dark_yellow,  col_dark_yellow  },
+ };
+ static const unsigned int alphas[][3]      = {
+ 	/*               fg      bg        border     */
+@@ -84,7 +85,7 @@
+ 
+ /* commands */
+ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
++static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_dark_yellow, "-sf", col_gray4, NULL };
+ static const char *termcmd[]  = { "st", NULL };
+ 
+ static Key keys[] = {
+@@ -118,8 +119,12 @@
+ 	{ MODKEY,                       XK_Tab,    view,           {0} },
+ 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+ 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
++	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[1]} },
++	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[2]} },
++	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[3]} },
++	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[4]} },
++	{ MODKEY,                       XK_c,      setlayout,      {.v = &layouts[11]} },
++	{ MODKEY|ShiftMask,             XK_c,      setlayout,      {.v = &layouts[12]} },
+ 	{ MODKEY,                       XK_space,  setlayout,      {0} },
+ 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+ 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
